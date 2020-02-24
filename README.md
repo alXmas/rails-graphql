@@ -31,6 +31,9 @@ query {
   }
 }
 ```
+## Result
+<img width="860" alt="Screen Shot 2020-02-24 at 5 37 45 PM" src="https://user-images.githubusercontent.com/25566849/75157257-330f3180-572d-11ea-9274-2c45bf77049f.png">
+
 ## Example mutation
 ```
 mutation {
@@ -46,6 +49,9 @@ mutation {
   }
 }
 ```
+## Result
+<img width="863" alt="Screen Shot 2020-02-24 at 5 38 25 PM" src="https://user-images.githubusercontent.com/25566849/75157273-37d3e580-572d-11ea-8531-9c34af74ad68.png">
 
-For more information, see the
-[*Dualboot Learn*](https://fullstack-learning.firebaseapp.com/).
+For more information how work with GraphQL, see the:
+[*GraphQL Documentation*](https://graphql.org/learn/),
+[*GraphqlRuby Documentation*](https://graphql-ruby.org/).
