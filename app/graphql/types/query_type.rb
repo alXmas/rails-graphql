@@ -4,8 +4,8 @@ module Types
   class QueryType < Types::BaseObject
     description 'Запросы'
 
-    field :authors, Types::Author::AuthorType, 'Автор постов', null: true
-    field :posts, Types::Post::PostType, 'Пост', null: true
+    field :authors, [Types::Author::AuthorType], 'Автоы постов', null: true
+    field :posts, [Types::Post::PostType], 'Посты', null: true
 
     def authors
       ::Author.all

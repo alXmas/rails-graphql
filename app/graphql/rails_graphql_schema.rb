@@ -4,10 +4,18 @@ class RailsGraphqlSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
 
-  # Opt in to the new runtime (default in future graphql-ruby versions)
-  use GraphQL::Execution::Interpreter
   use GraphQL::Analysis::AST
+  use GraphQL::Batch
+  use GraphQL::Schema::Timeout, max_seconds: 20
+  use GraphQL::Backtrace
 
-  # Add built-in connections for pagination
-  use GraphQL::Pagination::Connections
+  rescue_from(BadParamsError) do |exp|
+    raise GraphQL::ExecutionError.new(
+      exp.message,
+      extensions: {
+        code: :bad_params,
+        fullMessages: exp.full_message
+      }
+    )
+  end
 end

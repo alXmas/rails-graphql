@@ -1,9 +1,9 @@
 john = Author.create!(
-  name: "John",
+  name: "John"
 )
 
 jane = Author.create!(
-  name: "Jane",
+  name: "Jane"
 )
 
 Post.create!(
