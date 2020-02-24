@@ -1,13 +1,18 @@
+# frozen_string_literal: true
+
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    description 'Запросы'
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    field :authors, Types::Author::AuthorType, 'Автор постов', null: true
+    field :posts, Types::Post::PostType, 'Пост', null: true
+
+    def authors
+      ::Author.all
+    end
+
+    def posts
+      ::Post.all
     end
   end
 end
