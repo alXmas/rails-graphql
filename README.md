@@ -15,7 +15,7 @@ $ docker-compose run --rm web bash -c "rails db:create db:migrate db:seed"
 ```
 Run the app in a local server:
 ```
-docker-compose run --rm --service-ports web /bin/bash -c "rm tmp/pids/server.pid; bundle exec rails s -b '0.0.0.0' -p 3000"
+$ docker-compose run --rm --service-ports web /bin/bash -c "rm tmp/pids/server.pid; bundle exec rails s -b '0.0.0.0' -p 3000"
 ```
 
 ## Example query
