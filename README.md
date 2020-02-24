@@ -1,24 +1,23 @@
-# README
+# Simple GRUD on RoR with GraphQL
+This is the RoR and GraphQL application
+## Getting started
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get started with the app, clone the repo and build docker container:
 
-Things you may want to cover:
+```
+$ docker-compose build
+```
 
-* Ruby version
+Next, create and migrate the database:
 
-* System dependencies
+```
+$ docker-compose run --rm web bash -c "rails db:create db:migrate db:seed"
+```
 
-* Configuration
+```
+docker-compose run --rm --service-ports web /bin/bash -c "rm tmp/pids/server.pid; bundle exec rails s -b '0.0.0.0' -p 3000"
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For more information how work with GraphQL, see the:
+[*GraphQL Documentation*](https://graphql.org/learn/),
+[*GraphqlRuby Documentation*](https://graphql-ruby.org/).
