@@ -38,9 +38,9 @@ query {
 ```
 mutation {
   addPost(input: { authorId: 1, 
-									 title: "Привет мир!",
-    								body: "Hello"
-									}
+		   title: "Привет мир!",
+    		   body: "Hello"
+		 }
 		){
     post{
       title
