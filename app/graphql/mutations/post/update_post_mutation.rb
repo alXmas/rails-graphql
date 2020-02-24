@@ -11,7 +11,6 @@ class Mutations::Post::UpdatePostMutation < Mutations::BaseMutation
   field :errors, Types::ValidationErrorsType, 'Ошибки', null: true
 
   def resolve(**params)
-    byebug
     post = Post.find(params[:post_id])
 
     if post.update(params)

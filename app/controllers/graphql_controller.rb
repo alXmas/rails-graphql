@@ -7,19 +7,38 @@ class GraphqlController < ApplicationController
   # protect_from_forgery with: :null_session
 
   def execute
-    variables = ensure_hash(params[:variables])
-    query = params[:query]
-    operation_name = params[:operationName]
     context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
+      request: request
     }
-    result = RailsGraphqlSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
-    render json: result
+
+    result = if params[:_json]
+               queries = params[:_json].map do |param|
+                 {
+                   query: param[:query],
+                   operation_name: param[:operationName],
+                   variables: ensure_hash(param[:variables]),
+                   context: context
+                 }
+               end
+               RailsGraphqlSchema.multiplex(queries)
+             else
+              RailsGraphqlSchema.execute(
+                 params[:query],
+                 operation_name: params[:operationName],
+                 variables: ensure_hash(params[:variables]),
+                 context: context
+               )
+             end
+
+    render json: result, adapter: nil
   rescue StandardError => e
     raise e unless Rails.env.development?
 
     handle_error_in_development e
+  end
+
+  def schema
+    render json: RailsGraphqlSchema.execute(GraphQL::Introspection::INTROSPECTION_QUERY)['data']
   end
 
   private
