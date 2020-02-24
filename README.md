@@ -19,7 +19,7 @@ docker-compose run --rm --service-ports web /bin/bash -c "rm tmp/pids/server.pid
 ```
 
 ## Example query
-```
+```graphql
 query {
   posts {
     id
@@ -35,7 +35,7 @@ query {
 <img width="860" alt="Screen Shot 2020-02-24 at 5 37 45 PM" src="https://user-images.githubusercontent.com/25566849/75157257-330f3180-572d-11ea-9274-2c45bf77049f.png">
 
 ## Example mutation
-```
+```graphql
 mutation {
   addPost(input: { authorId: 1, 
 		   title: "Привет мир!",
