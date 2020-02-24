@@ -41,7 +41,7 @@ mutation {
 		   title: "Привет мир!",
     		   body: "Hello"
 		 }
-		){
+  ){
     post{
       title
       createdAt
