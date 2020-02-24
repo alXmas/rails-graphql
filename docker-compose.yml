@@ -7,3 +7,10 @@ services:
       - .:/rails-graphql
     ports:
       - "3000:3000"
+  bundle_cache:
+    image: busybox
+    volumes:
+      - bundle_cache:/bundle_cache
+
+volumes:
+  bundle_cache:
