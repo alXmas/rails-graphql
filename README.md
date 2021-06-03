@@ -1,4 +1,4 @@
-# Simple GRUD on RoR with GraphQL
+# Simple CRUD on RoR with GraphQL
 This is the RoR and GraphQL application
 ## Getting started
 
